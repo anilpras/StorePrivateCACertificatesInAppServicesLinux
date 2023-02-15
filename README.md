@@ -12,6 +12,12 @@ Using .Net Core
 
 ## How to identify the slowness
 
+1. Collect the network trace and look for the Time since previous frame in this TCP stream and find out if you find the delay there
+
+   ![image](https://user-images.githubusercontent.com/14159197/219192616-5ca33ad8-8af9-478b-822d-44a1c5566da3.png)
+
+
+
 
 ## How to fix it
 
