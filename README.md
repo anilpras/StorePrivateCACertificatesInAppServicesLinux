@@ -14,11 +14,11 @@ Using .Net Core
 
 ## How to identify if your app is impacted due to the issue
 
-1. Collect the network trace and look for the Time since previous frame in this TCP stream and find out if you find the delay there
+1. Collect the network trace and look for the 'time since previous frame in this TCP stream' and find out if there are delay. 
 
    ![image](https://user-images.githubusercontent.com/14159197/219201164-0331b391-2be9-44a0-b10f-e78b13638115.png)
 
-2. Check the Packets between tcp handshake and 'client hello', if you find the .CRT calls related to the Https outbound call then your application may be having the issue as discussed as above.  
+2. Check the packets between tcp handshake and 'client hello', if you find the .CRT calls related to the Https outbound call then your application may be having the issue as discussed as above.  
 
 ## How to fix it (the script has targetted for the dotnet core application running on linux)
 
