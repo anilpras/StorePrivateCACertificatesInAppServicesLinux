@@ -14,7 +14,7 @@ Using .Net Core
 
 1. Collect the network trace and look for the Time since previous frame in this TCP stream and find out if you find the delay there
 
-   ![image](https://user-images.githubusercontent.com/14159197/219195580-025728a6-e342-4599-afdc-356276b8510d.png)
+   ![image](https://user-images.githubusercontent.com/14159197/219201164-0331b391-2be9-44a0-b10f-e78b13638115.png)
 
 2. Check the Packets between tcp handshake and 'client hello', you find the .CRT calls related to the Https outbound call. 
 
