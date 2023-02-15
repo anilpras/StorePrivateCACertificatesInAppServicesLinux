@@ -35,7 +35,6 @@ Using .Net Core
    #var=$(grep '"*.dll"' web.config | grep -o -P '(?<=arguments=".\\).*(?=.dll)') 
    #dotnet $var".dll"
    #-----------------------------------------------------------------------------
-   
    ```
 3. Set WEBSITE_LOAD_CERTIFICATES with value of * or the cert thumbprints.
 4. Add the /home/customStartupScript.sh in the startup command.
