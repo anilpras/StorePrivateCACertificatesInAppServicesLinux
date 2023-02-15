@@ -10,7 +10,8 @@ Note - SNAT ports are limited in azure app services, so this will also bring dow
 Linux Based App Service
 Using Private Certificate Servers
 Using .Net Core
-<I haven't tested this for other application stack>
+
+[I haven't tested this for other application stack]
 
 ## How to identify if your app is impacted due to the issue
 
