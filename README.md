@@ -18,7 +18,7 @@ Using .Net Core
 
 2. Check the Packets between tcp handshake and 'client hello', you find the .CRT calls related to the Https outbound call. 
 
-## How to fix it
+## How to fix it (the script has targetted for the dotnet core application running on linux)
 
 1. Upload the certificates root and intermediate .crt file as discussed here https://azure.github.io/AppService/2017/11/01/App-Service-Certificates-now-supports-public-certificates-(.cer).html
 
@@ -30,12 +30,15 @@ Using .Net Core
    cd "/home/site/wwwroot"
    dotnet dotnetstartupdllname.dll
    
-   #If you are dll is resting inside the web.config file then this can be generalized by the couple of lines as below
+   #If your dll is resting inside the web.config file then this can be generalized by the couple of lines as below
    #-----------------------------------------------------------------------------
    #var=$(grep '"*.dll"' web.config | grep -o -P '(?<=arguments=".\\).*(?=.dll)') 
    #dotnet $var".dll"
+   #-----------------------------------------------------------------------------
+   
    ```
 3. Set WEBSITE_LOAD_CERTIFICATES with value of * or the cert thumbprints.
 4. Add the /home/customStartupScript.sh in the startup command.
+5. If your script has any issues the process won't start.
 
 
