@@ -20,21 +20,22 @@ Using .Net Core
 
 ## How to fix it
 
-Upload the certificates root and intermediate .crt file
-Created a customStartupScript.sh file, inside the /home directory.
+1. Upload the certificates root and intermediate .crt file as discussed here https://azure.github.io/AppService/2017/11/01/App-Service-Certificates-now-supports-public-certificates-(.cer).html
 
-Used the following content:
-```
-openssl x509 -inform der -in /var/ssl/certs/Public-CA-cert-GUID-for-root.der -outform pem -out /usr/local/share/ca-certificates/root.crt
-openssl x509 -inform der -in /var/ssl/certs/Public-CA-cert-GUID-for-intermediate.der -outform pem -out /usr/local/share/ca-certificates/intermediate.crt
-update-ca-certificates
-cd "/home/site/wwwroot"
-var=$(grep '"*.dll"' web.config | grep -o -P '(?<=arguments=".\\).*(?=.dll)') 
-dotnet $var".dll"
-```
-------------------------------------------------------------------
-
-Set WEBSITE_LOAD_CERTIFICATES with value of * or the cert thumbprints.
-Add the /home/customStartupScript.sh in the startup command.
+2. Created a customStartupScript.sh file, inside the /home directory, with following content:
+   ```
+   openssl x509 -inform der -in /var/ssl/certs/Public-CA-cert-GUID-for-root.der -outform pem -out /usr/local/share/ca-certificates/root.crt
+   openssl x509 -inform der -in /var/ssl/certs/Public-CA-cert-GUID-for-intermediate.der -outform pem -out /usr/local/share/ca-certificates/intermediate.crt
+   update-ca-certificates
+   cd "/home/site/wwwroot"
+   dotnet dotnetstartupdllname.dll
+   
+   #If you are dll is resting inside the web.config file then this can be generalized by the couple of lines as below
+   #-----------------------------------------------------------------------------
+   #var=$(grep '"*.dll"' web.config | grep -o -P '(?<=arguments=".\\).*(?=.dll)') 
+   #dotnet $var".dll"
+   ```
+3. Set WEBSITE_LOAD_CERTIFICATES with value of * or the cert thumbprints.
+4. Add the /home/customStartupScript.sh in the startup command.
 
 
