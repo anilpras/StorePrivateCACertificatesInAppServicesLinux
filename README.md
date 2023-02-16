@@ -7,9 +7,11 @@ As of now by default app services does not cache the private CA's root/intermedi
 Note - SNAT ports are limited in azure app services, so this will also bring down your SNAT calls.
 
 ## Scenario
-Linux Based App Service
-Using Private Certificate Servers
-Using .Net Core
+The latecny can be seen when the dotnet core application hosted on linux app service, and during the outbound call the app is communicating with private certificate authoritiy servers.
+
+Basically, if the root/itermediate certificates are not stored locally app would approach to the private certificate server to download the certificates. This behaviour does not manifest for the public CA certificates as by default app service downloads and store the certificate locally.
+
+All the public CA certificates can be found here
 
 [I haven't tested this for other application stack]
 
