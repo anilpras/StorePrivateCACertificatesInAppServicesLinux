@@ -56,5 +56,6 @@ For "Debian GNU/Linux 10 (buster)"
 3. Set WEBSITE_LOAD_CERTIFICATES with value of * or the cert thumbprints.
 4. Add the /home/customStartupScript.sh in the startup command.
 5. If your script has any issues the process won't start, so ensure your script is working and executable. 
+6. Collect the traces again and validate on your findings.
 
 
