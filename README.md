@@ -11,9 +11,20 @@ The latecny can be seen when the dotnet core application hosted on linux app ser
 
 Basically, if the root/itermediate certificates are not stored locally app would approach to the private certificate server to download the certificates. This behaviour does not manifest for the public CA certificates as by default app service downloads and store the certificates locally.
 
-All the public CA certificates can be found here:
+What all certificate store you need to know about:
 
+For "Debian GNU/Linux 10 (buster)"
+ 1. Uploaded public certificates from the portal(this is readonly, you can write directly to this folder)
+    root@b73852890d8e:~# ls /var/ssl/certs
+                         42CF82085AACC09EC896EFFDA935BB488E6DB81F.der
+                         91FC33CE429EF693E6E27D54D70818BBB8D77165.der
+    
+  2. Public certificate 
+    root@b73852890d8e:~# ls /etc/ssl/certs
 
+  3. /usr/local/share/ca-certificates - The certificates stored in /usr/local/share/ca-certificates are typically provided by third-party organizations or individuals,      and are not included in the operating system's default set of certificates. This directory is included in the default search path for trusted certificates.
+     so any  certificates stored here will be automatically trusted by the system.
+  
 [I haven't tested this for other application stack]
 
 ## How to identify if your app is impacted due to the issue
