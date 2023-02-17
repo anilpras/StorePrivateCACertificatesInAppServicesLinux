@@ -39,7 +39,7 @@ For "Debian GNU/Linux 10 (buster)"
 
 1. Upload the certificates root and intermediate .crt file as discussed here https://azure.github.io/AppService/2017/11/01/App-Service-Certificates-now-supports-public-certificates-(.cer).html
 
-2. Created a customStartupScript.sh file, inside the /home directory, with following content:
+2. Created a customStartupScript.sh file, inside the /home directory, with following content, please note you need root and all the intermediate certificates, in my case I just had to add root and intermediate.
    ```
    openssl x509 -inform der -in /var/ssl/certs/Public-CA-cert-GUID-for-root.der -outform pem -out /usr/local/share/ca-certificates/root.crt
    openssl x509 -inform der -in /var/ssl/certs/Public-CA-cert-GUID-for-intermediate.der -outform pem -out /usr/local/share/ca-certificates/intermediate.crt
