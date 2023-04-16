@@ -16,8 +16,8 @@ What all certificate store you need to know about:
 For "Debian GNU/Linux 10 (buster)"
  1. Uploaded public certificates from the portal(this is readonly, you can write directly to this folder)
     root@b73852890d8e:~# ls /var/ssl/certs
-                         42CF82085AACC09EC896EFFDA935BB488E6DB81F.der
-                         91FC33CE429EF693E6E27D54D70818BBB8D77165.der
+                         42CF820***************************6DB81F.der
+                         91FC33C**************************8D77165.der
     
   2. Public certificate 
     root@b73852890d8e:~# ls /etc/ssl/certs
