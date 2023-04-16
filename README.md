@@ -1,6 +1,6 @@
 ## Issue
 
-Linux App services app may take additional ~10ms - 1Sec during the outbound call if using private CA certificates + having client certificate auth enbabled.
+Linux App services app may take additional ~10ms - 1Sec during the outbound call if using private CA certificates + having client certificate auth enbabled. 
 
 As of now by default app services does not cache the private CA's root/intermediate certificate(s), and with each http(s) call app services makes a call to the private certificate endpoints to download the .CRT call. These calls appears just before the “Client Hello” and essentially these .CRT calls causes delay initiating the "Client Hello". Ideally the client hello should have been sent almost instantaneously.
 
