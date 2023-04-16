@@ -4,7 +4,7 @@ Linux App services app may take additional ~10ms - 1Sec during the outbound call
 
 As of now by default app services does not cache the private CA's root/intermediate certificate(s), and with each http(s) call app services makes a call to the private certificate endpoints to download the .CRT call. These calls appears just before the “Client Hello” and essentially these .CRT calls causes delay initiating the "Client Hello". Ideally the client hello should have been sent almost instantaneously.
 
-Note - SNAT ports are limited in azure app services, so this will also bring down your SNAT calls.
+Note - SNAT ports are limited in azure app services, so this will also optimize your SNAT calls.
 
 ## Scenario
 The latecny can be seen when the dotnet core application hosted on linux app service, and during the outbound call having the mutual server auth and the app is communicating with private certificate authoritiy servers.
@@ -16,8 +16,8 @@ What all certificate store you need to know about:
 For "Debian GNU/Linux 10 (buster)"
  1. Uploaded public certificates from the portal(this is readonly, you can write directly to this folder)
     root@b73852890d8e:~# ls /var/ssl/certs
-                         '*2C**20***************************6DB81F.der'
-                         '*1F**3C**************************8D77165.der'
+                         "*2C**20***************************6DB81F.der"
+                         "*1F**3C**************************8D77165.der"
     
   2. Public certificate 
     root@b73852890d8e:~# ls /etc/ssl/certs
